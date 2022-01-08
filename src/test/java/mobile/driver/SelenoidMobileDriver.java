@@ -15,12 +15,10 @@ public class SelenoidMobileDriver implements WebDriverProvider {
     public static SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class);
 
     static String url = config.url();
-    static String user = config.user();
-    static String pass = config.pass();
 
-    public static URL getAppiumServerUrl() {
+    public static URL getSelenoidUrl() {
         try {
-            return new URL("https://" + user + ":" + pass + "@" + url);
+            return new URL(url);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -28,9 +26,8 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-        desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName", "XSQ4C18B14000291");
-        desiredCapabilities.setCapability("version", "8.1.0");
+        desiredCapabilities.setCapability("deviceName", "android");
+        desiredCapabilities.setCapability("browserVersion", "8.1");
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("enableVNC", true);
@@ -38,7 +35,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("app", apkUrl());
-        return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
+        return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
     }
 
     private URL apkUrl() {

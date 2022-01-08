@@ -2,10 +2,11 @@ package mobile.selectors;
 
 public class Selectors {
 
-    public static String search = "org.wikipedia.alpha:id/search_src_text";
-    public static String searchResult = "org.wikipedia.alpha:id/page_list_item_title";
-    public static String moreButton = "org.wikipedia:id/menu_icon";
-    public static String settingsButton = "org.wikipedia:id/main_drawer_settings_container";
-    public static String title = "org.wikipedia:id/recycler_view";
+    public static String searchId = "org.wikipedia.alpha:id/search_src_text";
+    public static String searchResultId = "org.wikipedia.alpha:id/page_list_item_title";
+    public static String settings = "//android.widget.TextView[contains(@text,'Setting')]";
+    public static String general = "//android.widget.TextView[contains(@text,'General')]";
+    public static String text = "//*[@text='Did you know that everyone can edit Wikipedia?']";
+    public static String skip = "//android.widget.Button[contains(@text,'SKIP')]";
 }
 

@@ -35,11 +35,10 @@ dependencies {
 }
 
 tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+    options.encoding = "UTF-8"
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
-
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
@@ -47,28 +46,8 @@ tasks.withType(Test) {
 
     testLogging {
         lifecycle {
-//            events "started", "failed"
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
-    }
-}
-
-task local_android(type: Test) {
-    useJUnitPlatform {
-        includeTags 'local_android'
-    }
-}
-
-task selenoid_android(type: Test) {
-    useJUnitPlatform {
-        includeTags 'selenoid_android'
-    }
-    systemProperty "deviceFarm", "selenoid"
-}
-
-task emulator_android(type: Test) {
-    useJUnitPlatform {
-        includeTags 'emulator_android'
     }
 }

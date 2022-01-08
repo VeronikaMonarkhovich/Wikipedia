@@ -7,7 +7,6 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import javax.annotation.Nonnull;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -29,7 +28,6 @@ public class EmulatorMobileDriver  implements WebDriverProvider {
         }
     }
 
-    @Nonnull
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
         desiredCapabilities.setCapability("platformName", "Android");
