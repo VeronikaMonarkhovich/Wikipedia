@@ -21,7 +21,6 @@ import static mobile.helpers.Attach.getSessionId;
 import static mobile.selectors.Selectors.skip;
 
 public class TestBase {
-
     private static HostConfig config = ConfigFactory.create(HostConfig.class);
 
     @BeforeAll
@@ -65,4 +64,3 @@ public class TestBase {
         Attach.attachVideo(sessionId);
     }
 }
-

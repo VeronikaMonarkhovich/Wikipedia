@@ -13,7 +13,7 @@ import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class EmulatorMobileDriver  implements WebDriverProvider {
+public class EmulatorMobileDriver implements WebDriverProvider {
     public static EmulatorConfig config = ConfigFactory.create(EmulatorConfig.class);
 
     static String url = config.url();
