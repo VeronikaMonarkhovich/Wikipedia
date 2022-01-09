@@ -1,6 +1,7 @@
 package mobile.tests;
 
 import io.appium.java_client.MobileBy;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,7 @@ import static mobile.selectors.Selectors.*;
 public class WikipediaAndroidTests extends TestBase {
 
     @Test
+    @Feature("Поиск")
     @DisplayName("Успешный поиск в Wikipedia Android app")
     void searchTest() {
         step("Ввод в поисковую строку", () -> {
@@ -29,6 +31,7 @@ public class WikipediaAndroidTests extends TestBase {
     }
 
     @Test
+    @Feature("Страница настроек")
     @DisplayName("Проверка наличия раздела General в Wikipedia Android app")
     void checkGeneralSectionTest() {
         step("Нажимаем кнопку More", () ->
@@ -45,7 +48,7 @@ public class WikipediaAndroidTests extends TestBase {
             "Collapse tables",
             "App theme"
     })
-
+    @Feature("Страница Settings")
     @ParameterizedTest(name = "Проверка разделов настроек в Wikipedia Android app")
     void checkSettingsPageTest(String sectionName) {
         step("Нажимаем кнопку More", () ->
@@ -59,6 +62,7 @@ public class WikipediaAndroidTests extends TestBase {
     }
 
     @Test
+    @Feature("Страница Edits")
     @DisplayName("Проверка раздела Edits в Wikipedia Android app")
     void checkEditsTest() {
         step("Нажимаем кнопку Edits", () ->
