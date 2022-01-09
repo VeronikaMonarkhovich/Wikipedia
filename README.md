@@ -2,6 +2,7 @@
 # <img src="images/logo.jpg" width="40" height="40">  Проект для мобильного приложения Wikipedia
 
 <img src="images/wiki.in.jpg" width="600" height="300">
+
 ___
 
 Реализован запуск автотестов на следующем окружении:
@@ -75,6 +76,7 @@ ___
 ## <img src=https://github.com/VeronikaMonarkhovich/VeronikaMonarkhovich/blob/master/logo/Jira.png width="20" height="20"> Задача в таск-трекере Jira с данными, экспортированными из Allure TestOps
 
 <img src="images/jira.jpg" width="600" height="300"> 
+
 ___
 
 ## :calling: Уведомления о прохождение тестов отправляются в Telegram
