@@ -55,6 +55,4 @@ public class EmulatorMobileDriver implements WebDriverProvider {
         }
         return null;
     }
-
-
 }
