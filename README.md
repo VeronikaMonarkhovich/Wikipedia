@@ -1,7 +1,7 @@
 # Wikipedia
 # <img src="images/logo.jpg" width="40" height="40">  Проект для мобильного приложения Wikipedia
 
-<img src="images/wiki.jpg" width="600" height="300">
+<img src="images/wiki.jpg" width="400" height="400">
 
 ___
 
