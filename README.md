@@ -15,7 +15,7 @@ ___
 
 <img src="images/jenkins.jpg" width="800" height="600"> 
 
-Создаем emulator.properties:
+**Создаем emulator.properties:**
 
 ```bash
 src/test/resources/emulator.properties
@@ -26,7 +26,7 @@ url = http://172.17.0.1:4723/wd/hub
 device = Test2
 ver = 11.0
 ```
-Создаем local.properties:
+**Создаем local.properties:**
 
 ```bash
 src/test/resources/local.properties
@@ -37,7 +37,7 @@ url = http://172.17.0.1:4723/wd/hub
 device = XSQ4C18B14000291
 ver = 8.1
 ```
-Создаем selenoid.properties:
+**Создаем selenoid.properties:**
 
 ```bash
 src/test/resources/selenoid.properties
@@ -85,8 +85,8 @@ ___
 
 ## :movie_camera: Видеотчет теста "Успешный поиск в Wikipedia Android app"
 
-<img src="images/emulator.gif" width="600" height="800"> 
+<img src="images/emulator.gif" width="300" height="600"> 
 
 ## :movie_camera: Видеотчет теста "Проверка раздела Edits в Wikipedia Android app"
 
-<img src="images/selenoid.gif" width="600" height="800"> 
+<img src="images/selenoid.gif" width="600" height="300"> 
