@@ -1,7 +1,7 @@
 # Wikipedia
 # <img src="images/logo.jpg" width="40" height="40">  Проект для мобильного приложения Wikipedia
 
-<img src="images/wiki.in.jpg" width="800" height="600">
+<img src="images/wiki.in.jpg" width="600" height="300">
 ___
 
 Реализован запуск автотестов на следующем окружении:
@@ -13,7 +13,7 @@ ___
 
 ## :person_in_tuxedo: Запуск тестов происходит в CI [Jenkins](http://localhost:9090/job/08-Veronika_Monarkhovich-Wikipedia/)
 
-<img src="images/jenkins.jpg" width="800" height="600"> 
+<img src="images/jenkins.jpg" width="600" height="300"> 
 
 **Создаем emulator.properties:**
 
@@ -63,23 +63,23 @@ ___
 
 ## :bar_chart: Отчет генерируется в Allure
 
-<img src="images/allure.jpg" width="800" height="600">
+<img src="images/allure.jpg" width="600" height="300">
 
 ___
 
 ## <img src="images/ato1.jpg" width="20" height="20"> Тестовая документация, сгенерированная в Allure TestOps по итогам прохождения тестов
 
-<img src="images/ato1.jpg" width="800" height="600"> 
+<img src="images/ato1.jpg" width="600" height="300"> 
 
 ___
 ## <img src=https://github.com/VeronikaMonarkhovich/VeronikaMonarkhovich/blob/master/logo/Jira.png width="20" height="20"> Задача в таск-трекере Jira с данными, экспортированными из Allure TestOps
 
-<img src="images/jira.jpg" width="800" height="600"> 
+<img src="images/jira.jpg" width="600" height="300"> 
 ___
 
 ## :calling: Уведомления о прохождение тестов отправляются в Telegram
 
-<img src="images/telegram.jpg" width="600" height="800"> 
+<img src="images/telegram.jpg" width="300" height="600"> 
 
 ___
 
