@@ -1,7 +1,7 @@
 # Wikipedia
 # <img src="images/logo.jpg" width="40" height="40">  Проект для мобильного приложения Wikipedia
 
-<img src="images/wiki.in.jpg" width="600" height="300">
+<img src="images/wiki.jpg" width="600" height="300">
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 ___
 
-## <img src="images/ato1.jpg" width="20" height="20"> Тестовая документация, сгенерированная в Allure TestOps по итогам прохождения тестов
+## <img src="images/ato.jpg" width="20" height="20"> Тестовая документация, сгенерированная в Allure TestOps по итогам прохождения тестов
 
 <img src="images/ato1.jpg" width="600" height="300"> 
 
