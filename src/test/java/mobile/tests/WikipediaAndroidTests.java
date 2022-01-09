@@ -31,7 +31,7 @@ public class WikipediaAndroidTests extends TestBase {
     }
 
     @Test
-    @Feature("Страница настроек")
+    @Feature("Страница Settings")
     @DisplayName("Проверка наличия раздела General в Wikipedia Android app")
     void checkGeneralSectionTest() {
         step("Нажимаем кнопку More", () ->
