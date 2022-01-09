@@ -8,7 +8,9 @@ ___
 Реализован запуск автотестов на следующем окружении:
 
 remote emulator device (Selenoid);
+
 local emulator device (AVD);
+
 local real device.
 ___
 
