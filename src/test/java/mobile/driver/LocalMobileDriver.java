@@ -38,9 +38,15 @@ public class LocalMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
+        //desiredCapabilities.setCapability("app", getAbsolutePath("src/test/resources/app-alpha-universal-release.apk"));
         desiredCapabilities.setCapability("app", apkUrl());
+
         return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
     }
+    //private String getAbsolutePath(String filePath) {
+    //  File file = new File(filePath);
+    //  assertTrue(file.exists(), filePath + " not found");
+    //     return file.getAbsolutePath();
 
     private URL apkUrl() {
         try {

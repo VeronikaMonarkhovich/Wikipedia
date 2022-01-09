@@ -37,15 +37,24 @@ public class EmulatorMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-        desiredCapabilities.setCapability("app", getAbsolutePath("src/test/resources/app-alpha-universal-release.apk"));
+        //desiredCapabilities.setCapability("app", getAbsolutePath("src/test/resources/app-alpha-universal-release.apk"));
+        desiredCapabilities.setCapability("app", apkUrl());
 
         return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
     }
+    //private String getAbsolutePath(String filePath) {
+    //  File file = new File(filePath);
+    //  assertTrue(file.exists(), filePath + " not found");
+    //     return file.getAbsolutePath();
 
-    private String getAbsolutePath(String filePath) {
-        File file = new File(filePath);
-        assertTrue(file.exists(), filePath + " not found");
-
-        return file.getAbsolutePath();
+    private URL apkUrl() {
+        try {
+            return new URL("https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
+
 }
