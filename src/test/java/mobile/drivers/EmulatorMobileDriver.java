@@ -1,8 +1,8 @@
-package mobile.driver;
+package mobile.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
-import mobile.config.SelenoidConfig;
+import mobile.configs.EmulatorConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -10,13 +10,16 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SelenoidMobileDriver implements WebDriverProvider {
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-    public static SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class);
+public class EmulatorMobileDriver implements WebDriverProvider {
+    public static EmulatorConfig config = ConfigFactory.create(EmulatorConfig.class);
 
     static String url = config.url();
+    static String device = config.device();
+    static String ver = config.version();
 
-    public static URL getSelenoidUrl() {
+    public static URL getAppiumServerUrl() {
         try {
             return new URL(url);
         } catch (MalformedURLException e) {
@@ -26,17 +29,22 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-        desiredCapabilities.setCapability("deviceName", "android");
-        desiredCapabilities.setCapability("browserVersion", "8.1");
+        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("deviceName", device);
+        desiredCapabilities.setCapability("version", ver);
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
-        desiredCapabilities.setCapability("enableVNC", true);
-        desiredCapabilities.setCapability("enableVideo", true);
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
+        //desiredCapabilities.setCapability("app", getAbsolutePath("src/test/resources/app-alpha-universal-release.apk"));
         desiredCapabilities.setCapability("app", apkUrl());
-        return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
+
+        return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
     }
+    //private String getAbsolutePath(String filePath) {
+    //  File file = new File(filePath);
+    //  assertTrue(file.exists(), filePath + " not found");
+    //     return file.getAbsolutePath();
 
     private URL apkUrl() {
         try {

@@ -1,24 +1,24 @@
-package mobile.driver;
+package mobile.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
-import mobile.config.EmulatorConfig;
+import mobile.configs.LocalConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class EmulatorMobileDriver implements WebDriverProvider {
-    public static EmulatorConfig config = ConfigFactory.create(EmulatorConfig.class);
+public class LocalMobileDriver implements WebDriverProvider {
+
+    public static LocalConfig config = ConfigFactory.create(LocalConfig.class);
 
     static String url = config.url();
     static String device = config.device();
-    static String ver = config.ver();
+    static String ver = config.version();
 
     public static URL getAppiumServerUrl() {
         try {

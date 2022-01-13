@@ -1,7 +1,7 @@
 package mobile.helpers;
 
 import io.qameta.allure.Attachment;
-import mobile.config.HostConfig;
+import mobile.configs.HostConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -40,7 +40,7 @@ public class Attach {
     }
 
     private static String getVideoUrl(String sessionId) {
-        if (config.getDeviceHost().equals("selenoid")) {
+        if (config.deviceHost().equals("selenoid")) {
             return getSelenoidVideoUrl(sessionId);
         }
         return null;

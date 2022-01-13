@@ -22,7 +22,6 @@ allure {
 }
 
 dependencies {
-    implementation 'org.cdisource.testing:cdisource-testing-junit:0.9'
     testImplementation(
             "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:$selenideVersion",

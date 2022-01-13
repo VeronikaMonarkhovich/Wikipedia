@@ -1,46 +1,43 @@
 package mobile.tests;
 
-import io.appium.java_client.MobileBy;
 import io.qameta.allure.AllureId;
-import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Assertions;
+import mobile.tests.pages.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-import static mobile.selectors.Selectors.*;
 
 public class WikipediaAndroidTests extends TestBase {
+    MainPage mainPage = new MainPage();
+    SearchResultsPage searchResultsPage = new SearchResultsPage();
+    MorePage morePage = new MorePage();
+    SettingsPage settingsPage = new SettingsPage();
+    EditsPage editsPage = new EditsPage();
 
     @Test
     @AllureId("6583")
     @DisplayName("Успешный поиск в Wikipedia Android app")
     void searchTest() {
-        step("Ввод в поисковую строку", () -> {
-            $(MobileBy.AccessibilityId("Search Wikipedia")).click();
-            $(MobileBy.id(searchId)).val("GitHub");
-        });
+        mainPage.setSkip();
+        step("Ввод в поисковую строку", () ->
+                mainPage.enterTheSearchBar("GitHub"));
         step("Проверяем успешный поиск", () ->
-                $$(MobileBy.id(searchResultId))
-                        .shouldHave(sizeGreaterThan(0)));
+                searchResultsPage.checkResults());
     }
 
     @Test
     @AllureId("6586")
     @DisplayName("Проверка наличия раздела General в Wikipedia Android app")
     void checkGeneralSectionTest() {
+        mainPage.setSkip();
         step("Нажимаем кнопку More", () ->
-                $(MobileBy.AccessibilityId("More")).click());
+                mainPage.clickMore());
         step("Нажимаем кнопку Settings", () ->
-                $(MobileBy.xpath(settings)).click());
+                morePage.clickSettings());
         step("Проверяем раздел General", () ->
-                $(MobileBy.xpath(general)).shouldBe(visible));
+                settingsPage.checkGeneral());
     }
 
     @CsvSource({
@@ -52,23 +49,23 @@ public class WikipediaAndroidTests extends TestBase {
     @AllureId("6585")
     @ParameterizedTest(name = "Проверка разделов настроек в Wikipedia Android app")
     void checkSettingsPageTest(String sectionName) {
+        mainPage.setSkip();
         step("Нажимаем кнопку More", () ->
-                $(MobileBy.AccessibilityId("More")).click());
+                mainPage.clickMore());
         step("Нажимаем кнопку Settings", () ->
-                $(MobileBy.xpath(settings)).click());
-        step("Проверяем названия разделов", () -> {
-            String section = $(MobileBy.xpath("//*[@text='" + sectionName + "']")).getAttribute("text");
-            Assertions.assertEquals(section, sectionName);
-        });
+                morePage.clickSettings());
+        step("Проверяем названия разделов", () ->
+                settingsPage.checkChapters(sectionName));
     }
 
     @Test
     @AllureId("6584")
     @DisplayName("Проверка раздела Edits в Wikipedia Android app")
     void checkEditsTest() {
+        mainPage.setSkip();
         step("Нажимаем кнопку Edits", () ->
-                $(MobileBy.AccessibilityId("Edits")).click());
-        step("Проверяем текст", () ->
-                $(MobileBy.xpath(text)).shouldBe(visible));
+                mainPage.clickEdits());
+        step("Проверяем текст заголовка", () ->
+                editsPage.checkHeader());
     }
 }
